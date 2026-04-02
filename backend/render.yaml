@@ -1,0 +1,28 @@
+﻿services:
+  - type: web
+    name: chengji-backend
+    env: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm run start
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: CORS_ORIGIN
+        sync: false
+      - key: AI_PROVIDER
+        value: aliyun
+      - key: ALIYUN_API_KEY
+        sync: false
+      - key: ALIYUN_MODEL
+        value: qwen-plus
+      - key: ALIYUN_BASE_URL
+        value: https://dashscope.aliyuncs.com/compatible-mode/v1
+      - key: TENCENT_SECRET_ID
+        sync: false
+      - key: TENCENT_SECRET_KEY
+        sync: false
+      - key: TENCENT_HUNYUAN_REGION
+        value: ap-guangzhou
+      - key: TENCENT_HUNYUAN_MODEL
+        value: hunyuan-turbos-latest

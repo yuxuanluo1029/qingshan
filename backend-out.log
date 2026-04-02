@@ -1,0 +1,15 @@
+
+> chengji-backend@1.0.0 dev
+> node --watch src/index.js
+
+[chengji-backend] running at http://localhost:3000
+[chengji-backend] provider mode: aliyun
+[chengji-backend] runtime model: aliyun:qwen-plus
+Restarting 'src/index.js'
+[chengji-backend] running at http://localhost:3000
+[chengji-backend] provider mode: aliyun
+[chengji-backend] runtime model: aliyun:qwen-plus
+Restarting 'src/index.js'
+[chengji-backend] running at http://localhost:3000
+[chengji-backend] provider mode: aliyun
+[chengji-backend] runtime model: aliyun:qwen-plus
