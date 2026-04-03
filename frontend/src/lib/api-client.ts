@@ -1,12 +1,16 @@
 import axios, { AxiosError } from 'axios';
 
+const envBaseUrl = (import.meta as { env?: Record<string, string | undefined> }).env?.VITE_API_BASE_URL?.trim();
+const normalizedBaseUrl = envBaseUrl ? envBaseUrl.replace(/\/$/, '') : '';
+const apiBaseUrl = normalizedBaseUrl ? `${normalizedBaseUrl}/api` : '/api';
+
 /**
  * Axios instance configured for API requests
  * Uses Vite proxy to forward /api requests to http://localhost:3000
  * No need for VITE_API_BASE_URL environment variable
  */
 export const apiClient = axios.create({
-  baseURL: '/api',
+  baseURL: apiBaseUrl,
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
@@ -72,4 +76,3 @@ export function getErrorMessage(error: unknown): string {
 }
 
 export default apiClient;
-

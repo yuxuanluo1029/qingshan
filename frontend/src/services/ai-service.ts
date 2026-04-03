@@ -59,6 +59,11 @@ const SYSTEM_PROMPT = `你是“城迹”城市历史文化导师。
 
 const API_BASE = ((import.meta as { env?: Record<string, string | undefined> }).env?.VITE_API_BASE_URL || '').replace(/\/$/, '');
 const withBase = (path: string) => (API_BASE ? `${API_BASE}${path}` : path);
+const stripWordCountSuffix = (text: string) =>
+  text
+    .replace(/\s*[（(]\s*(?:约|共|总计)?\s*\d+\s*字\s*[)）]\s*$/u, '')
+    .replace(/\s*[（(]\s*\d+\s*chars?\s*[)）]\s*$/iu, '')
+    .trim();
 
 class AIService {
   private useRealAPI = true;
@@ -66,25 +71,25 @@ class AIService {
   async askKnowledge(input: KnowledgeQAInput): Promise<string> {
     if (this.useRealAPI) {
       try {
-        return await this.callKnowledgeAPI(input);
+        return stripWordCountSuffix(await this.callKnowledgeAPI(input));
       } catch {
-        return this.mockKnowledge(input);
+        return stripWordCountSuffix(this.mockKnowledge(input));
       }
     }
 
-    return this.mockKnowledge(input);
+    return stripWordCountSuffix(this.mockKnowledge(input));
   }
 
   async chat(messages: AIMessage[], context?: { city?: string; routeName?: string; focus?: string }): Promise<string> {
     if (this.useRealAPI) {
       try {
-        return await this.callChatAPI(messages, context);
+        return stripWordCountSuffix(await this.callChatAPI(messages, context));
       } catch {
-        return this.mockChat(messages, context);
+        return stripWordCountSuffix(this.mockChat(messages, context));
       }
     }
 
-    return this.mockChat(messages, context);
+    return stripWordCountSuffix(this.mockChat(messages, context));
   }
 
   async generateJourneyPlan(input: JourneyPlanInput): Promise<JourneyPlanOutput> {

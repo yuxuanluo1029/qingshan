@@ -244,7 +244,7 @@ export default function Report() {
             分享报告
           </Button>
           <Button
-            onClick={() => navigate('/')}
+            onClick={() => navigate('/home')}
             className="grow rounded-xl py-5 font-bold tracking-widest transition-all hover:scale-[1.02]"
             style={{ background: 'linear-gradient(135deg, #B66A44, #D38A5C)', color: '#FFF8EF', border: 'none', boxShadow: '0 4px 24px rgba(182,106,68,0.45)', fontFamily: "'Noto Serif SC', serif" }}
           >

@@ -253,7 +253,7 @@ export default function Chat() {
           <FadeIn>
             <div
               className="mx-auto mt-4 max-w-sm cursor-pointer rounded-xl p-5 transition-all duration-300 hover:scale-[1.02]"
-              onClick={() => navigate('/route')}
+              onClick={() => navigate('/guide/route')}
               style={{
                 background: 'linear-gradient(135deg, rgba(36,67,80,0.45), rgba(128,215,204,0.14))',
                 border: '1px solid rgba(128,215,204,0.35)',

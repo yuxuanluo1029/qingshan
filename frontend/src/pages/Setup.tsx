@@ -68,7 +68,7 @@ export default function Setup() {
     };
 
     sessionStorage.setItem('setupData', JSON.stringify(setupData));
-    navigate('/chat');
+    navigate('/guide/chat');
   };
 
   return (

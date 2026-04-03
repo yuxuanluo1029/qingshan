@@ -45,7 +45,7 @@ export default function NodeDetail() {
       <div className="flex min-h-screen items-center justify-center px-6 text-center" style={{ background: '#F6F1E8' }}>
         <div className="rounded-xl p-5" style={{ background: '#FFFFFF', border: '1px solid #D8C8B4' }}>
           <p style={{ color: '#2C2C2C', fontFamily: "'Noto Serif SC', serif" }}>未找到可展示的研学节点，请返回路线页重新选择。</p>
-          <Button className="mt-4" onClick={() => navigate('/route')} style={{ background: '#244350', color: '#F6F1E8', border: 'none' }}>
+          <Button className="mt-4" onClick={() => navigate('/guide/route')} style={{ background: '#244350', color: '#F6F1E8', border: 'none' }}>
             返回路线页
           </Button>
         </div>
@@ -235,7 +235,7 @@ export default function NodeDetail() {
 
         <FadeIn className="mt-8">
           <Button
-            onClick={() => (nextPoint ? navigate(`/node/${nextPoint.id}`) : navigate('/bond'))}
+            onClick={() => (nextPoint ? navigate(`/guide/node/${nextPoint.id}`) : navigate('/guide/bond'))}
             className="w-full rounded-xl py-5 text-base font-bold tracking-widest transition-all hover:scale-[1.02]"
             style={{
               background: !isLastInRoute ? 'linear-gradient(135deg, #244350, #13243D)' : 'linear-gradient(135deg, #C4A35A, #B66A44)',

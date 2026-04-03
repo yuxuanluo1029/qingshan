@@ -157,7 +157,7 @@ export default function Bond() {
 
         <FadeIn className="mt-10 pb-12">
           <Button
-            onClick={() => navigate('/report')}
+            onClick={() => navigate('/guide/report')}
             className="w-full rounded-xl py-6 text-lg font-bold tracking-widest transition-all hover:scale-[1.02]"
             style={{
               background: 'linear-gradient(135deg, #C4A35A, #B66A44)',

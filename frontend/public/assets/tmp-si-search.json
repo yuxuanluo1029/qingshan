@@ -1,0 +1,1174 @@
+{
+  "status": 200,
+  "responseCode": 1,
+  "response": {
+    "rows": [
+      {
+        "id": "sro-1663946979444-1663946995034-1",
+        "title": "Computed Tomography, Visualization, and 3D Modeling",
+        "unitCode": "SLA_SRO",
+        "type": "edanmdm",
+        "url": "edanmdm:slasro_137268",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Year",
+                "content": "2014"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Snyder, Rebecca A."
+              },
+              {
+                "label": "Editor",
+                "content": "Owsley, Douglas W."
+              },
+              {
+                "label": "Editor",
+                "content": "Jantz, Richard L."
+              }
+            ],
+            "notes": [
+              {
+                "label": "Citation",
+                "content": "Snyder, Rebecca A. 2014. \"Computed Tomography, Visualization, and 3D Modeling.\" In <em>Kennewick Man: The Scientific Investigation of an Ancient American Skeleton</em>. Owsley, Douglas W. and Jantz, Richard L., editors. 417–428. Texas A&M University Press."
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data source",
+                "content": "Smithsonian Libraries and Archives"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Identifier",
+                "content": "137268"
+              },
+              {
+                "label": "ISBN",
+                "content": "9781623492342"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Object Type",
+                "content": "Smithsonian staff publication"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2010s"
+            ],
+            "name": [
+              {
+                "type": "author",
+                "content": "Snyder, Rebecca A."
+              },
+              {
+                "type": "editor",
+                "content": "Owsley, Douglas W."
+              },
+              {
+                "type": "editor",
+                "content": "Jantz, Richard L."
+              }
+            ],
+            "object_type": [
+              "Book Chapter",
+              "Smithsonian staff publications"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Computed Tomography, Visualization, and 3D Modeling"
+            },
+            "record_ID": "slasro_137268",
+            "unit_code": "SLA_SRO",
+            "title_sort": "COMPUTED TOMOGRAPHY, VISUALIZATION, AND 3D MODELING",
+            "data_source": "Smithsonian Libraries and Archives",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "1dd8ed66ae327a6f623aa98aac6adebfc573e03c",
+        "docSignature": "f121d18213e7dc7ae7b63e0226d9697a",
+        "timestamp": "1663956059",
+        "lastTimeUpdated": "1671011753",
+        "version": "1671011689"
+      },
+      {
+        "id": "ld1-1646149545906-1646150720346-1",
+        "title": "3D modeling with Vectorworks / Jonathan Pickup",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_1049482",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2015"
+              }
+            ],
+            "name": [
+              {
+                "label": "author",
+                "content": "Pickup, Jonathan"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "\" Written with version 2015.\""
+              },
+              {
+                "label": "Notes",
+                "content": "Accompanying disc contains exercises, a PDF copy of the manual, and moving image visuals with spoken commentary."
+              },
+              {
+                "label": "Notes",
+                "content": "Disc in pocket."
+              },
+              {
+                "label": "Notes",
+                "content": "\"Series VP978\"--Disc label."
+              },
+              {
+                "label": "Contents",
+                "content": "Introduction -- Simple 3D modeling -- Architectural modeling -- Bus stop project"
+              },
+              {
+                "label": "Summary",
+                "content": "\"The seventh edition Vectorworks 3D Modeling Tutorial manual is a must-have workbook for anyone seeking to learn how to free-form model with Vectorworks. Exercises aimed at building a foundation of 3D Vectorworks skills include creating 3D forms through the use of extrudes, sweeps, solids, NURBS, loft surfaces, and 3D primitives. This manual will bring you to a competent level of 3D capability.\"--Back cover."
+              }
+            ],
+            "title": [
+              {
+                "label": "Title",
+                "content": "Three-D modeling with Vectorworks"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Architecture--Computer-aided design"
+              },
+              {
+                "label": "Topic",
+                "content": "Computer-aided design--Computer programs"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Handbooks, manuals, etc"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "vi, 241 pages : color illustrations ; 23 cm + 1 DVD-ROM (4 3/4 in.)"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2010s"
+            ],
+            "name": [
+              "Pickup, Jonathan"
+            ],
+            "topic": [
+              "Design",
+              "Architecture",
+              "Computer Science",
+              "Computer programs"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Manuals (instructional materials)"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "3D modeling with Vectorworks / Jonathan Pickup"
+            },
+            "record_ID": "siris_sil_1049482",
+            "unit_code": "SIL",
+            "title_sort": "3D MODELING WITH VECTORWORKS JONATHAN PICKUP",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!1049482~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "fde0d59449158b98ed20db6df3a27a67f9c83c1e",
+        "docSignature": "460eefcf516aaa6c6e696f1c3f3531ab",
+        "timestamp": "1498153816",
+        "lastTimeUpdated": "1661976182",
+        "version": "0"
+      },
+      {
+        "id": "sro-1663946979444-1663946980309-0",
+        "title": "Museum Exhibitions of Fossil Specimens Into Commercial Products: Unexpected Outflow of 3D Models due to Unwritten Image Policies",
+        "unitCode": "SLA_SRO",
+        "type": "edanmdm",
+        "url": "edanmdm:slasro_165041",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Year",
+                "content": "2022"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Matsui, Kumiko"
+              },
+              {
+                "label": "Author",
+                "content": "Kimura, Yuri"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Citation",
+                "content": "Matsui, Kumiko and Kimura, Yuri. 2022. \"<a href=\"https://www.frontiersin.org/articles/10.3389/feart.2022.874736/pdf\">Museum Exhibitions of Fossil Specimens Into Commercial Products: Unexpected Outflow of 3D Models due to Unwritten Image Policies</a>.\" <em>Frontiers in Earth Science</em>, 10. <a href=\"https://doi.org/10.3389/feart.2022.874736\">https://doi.org/10.3389/feart.2022.874736</a>."
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data source",
+                "content": "Smithsonian Libraries and Archives"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Identifier",
+                "content": "165041"
+              },
+              {
+                "label": "DOI",
+                "content": "https://doi.org/10.3389/feart.2022.874736"
+              },
+              {
+                "label": "ISSN",
+                "content": "2296-6463"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Object Type",
+                "content": "Smithsonian staff publication"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2020s"
+            ],
+            "name": [
+              {
+                "type": "author",
+                "content": "Matsui, Kumiko"
+              },
+              {
+                "type": "author",
+                "content": "Kimura, Yuri"
+              }
+            ],
+            "object_type": [
+              "Journal Article",
+              "Smithsonian staff publications"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Museum Exhibitions of Fossil Specimens Into Commercial Products: Unexpected Outflow of 3D Models due to Unwritten Image Policies"
+            },
+            "record_ID": "slasro_165041",
+            "unit_code": "SLA_SRO",
+            "title_sort": "MUSEUM EXHIBITIONS OF FOSSIL SPECIMENS INTO COMMERCIAL PRODUCTS: UNEXPECTED OUTFLOW OF 3D MODELS DUE TO UNWRITTEN IMAGE POLICIES",
+            "data_source": "Smithsonian Libraries and Archives",
+            "record_link": "https://www.frontiersin.org/articles/10.3389/feart.2022.874736/pdf",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "45eceee7ebf8595a7cefedd521440e295bd8c52d",
+        "docSignature": "93a536829a84908aaf4c5a7db21dbe52",
+        "timestamp": "1663956083",
+        "lastTimeUpdated": "1663956083",
+        "version": "1663955544"
+      },
+      {
+        "id": "sro-1663946979444-1663946983169-2",
+        "title": "Holding the Cosmos in Your Hand: Developing 3D Modeling and Printing Pipelines for Communications and Research",
+        "unitCode": "SLA_SRO",
+        "type": "edanmdm",
+        "url": "edanmdm:slasro_157510",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Year",
+                "content": "2020"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Arcand, Kimberly K."
+              },
+              {
+                "label": "Author",
+                "content": "Price, Sara R."
+              },
+              {
+                "label": "Author",
+                "content": "Watzke, Megan"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Citation",
+                "content": "Arcand, Kimberly K., Price, Sara R., and Watzke, Megan. 2020. \"<a href=\"https://www.frontiersin.org/articles/10.3389/feart.2020.590295/pdf\">Holding the Cosmos in Your Hand: Developing 3D Modeling and Printing Pipelines for Communications and Research</a>.\" <em>Frontiers in Earth Science</em>, 8 590295. <a href=\"https://doi.org/10.3389/feart.2020.590295\">https://doi.org/10.3389/feart.2020.590295</a>."
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data source",
+                "content": "Smithsonian Libraries and Archives"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Identifier",
+                "content": "157510"
+              },
+              {
+                "label": "DOI",
+                "content": "https://doi.org/10.3389/feart.2020.590295"
+              },
+              {
+                "label": "ISSN",
+                "content": "2296-6463"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Object Type",
+                "content": "Smithsonian staff publication"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2020s"
+            ],
+            "name": [
+              {
+                "type": "author",
+                "content": "Arcand, Kimberly K."
+              },
+              {
+                "type": "author",
+                "content": "Price, Sara R."
+              },
+              {
+                "type": "author",
+                "content": "Watzke, Megan"
+              }
+            ],
+            "object_type": [
+              "Journal Article",
+              "Smithsonian staff publications"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Holding the Cosmos in Your Hand: Developing 3D Modeling and Printing Pipelines for Communications and Research"
+            },
+            "record_ID": "slasro_157510",
+            "unit_code": "SLA_SRO",
+            "title_sort": "HOLDING THE COSMOS IN YOUR HAND: DEVELOPING 3D MODELING AND PRINTING PIPELINES FOR COMMUNICATIONS AND RESEARCH",
+            "data_source": "Smithsonian Libraries and Archives",
+            "record_link": "https://www.frontiersin.org/articles/10.3389/feart.2020.590295/pdf",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "b27e9c8d8a06eb423ce733b4dff15eecc30bd6bd",
+        "docSignature": "33fe264726b54fc848367c21453dc9f2",
+        "timestamp": "1663956078",
+        "lastTimeUpdated": "1663956078",
+        "version": "1663955549"
+      },
+      {
+        "id": "sro-1663946979444-1663946992178-1",
+        "title": "New applications of 3D modeling in artefact analysis: three case studies of Viking Age brooches",
+        "unitCode": "SLA_SRO",
+        "type": "edanmdm",
+        "url": "edanmdm:slasro_127136",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Year",
+                "content": "2016"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Neiß, Michael"
+              },
+              {
+                "label": "Author",
+                "content": "Sholts, Sabrina B."
+              },
+              {
+                "label": "Author",
+                "content": "Wärmländer, Sebastian K. T. S."
+              }
+            ],
+            "notes": [
+              {
+                "label": "Citation",
+                "content": "Neiß, Michael, Sholts, Sabrina B., and Wärmländer, Sebastian K. T. S. 2016. \"<a href=\"https://repository.si.edu/handle/10088/25926\">New applications of 3D modeling in artefact analysis: three case studies of Viking Age brooches</a>.\" <em>Archaeological and Anthropological Sciences</em>, 8, (4) 651–662. <a href=\"https://doi.org/10.1007/s12520-014-0200-9\">https://doi.org/10.1007/s12520-014-0200-9</a>."
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data source",
+                "content": "Smithsonian Libraries and Archives"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Identifier",
+                "content": "127136"
+              },
+              {
+                "label": "DOI",
+                "content": "https://doi.org/10.1007/s12520-014-0200-9"
+              },
+              {
+                "label": "ISSN",
+                "content": "1866-9557"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Object Type",
+                "content": "Smithsonian staff publication"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2010s"
+            ],
+            "name": [
+              {
+                "type": "author",
+                "content": "Neiß, Michael"
+              },
+              {
+                "type": "author",
+                "content": "Sholts, Sabrina B."
+              },
+              {
+                "type": "author",
+                "content": "Wärmländer, Sebastian K. T. S."
+              }
+            ],
+            "object_type": [
+              "Journal Article",
+              "Smithsonian staff publications"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "New applications of 3D modeling in artefact analysis: three case studies of Viking Age brooches"
+            },
+            "record_ID": "slasro_127136",
+            "unit_code": "SLA_SRO",
+            "title_sort": "NEW APPLICATIONS OF 3D MODELING IN ARTEFACT ANALYSIS: THREE CASE STUDIES OF VIKING AGE BROOCHES",
+            "data_source": "Smithsonian Libraries and Archives",
+            "record_link": "https://repository.si.edu/handle/10088/25926",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "0934a776ddfaf6b642272ab5f286401a9fe61cea",
+        "docSignature": "684f32238f33f645f41ae708339a4159",
+        "timestamp": "1663956054",
+        "lastTimeUpdated": "1663956054",
+        "version": "1663955564"
+      },
+      {
+        "id": "sro-1663946979444-1663946989737-0",
+        "title": "Bringing Cosmic Objects Down to Earth: An Overview of 3D Modelling and Printing in Astronomy and Astronomy Communication",
+        "unitCode": "SLA_SRO",
+        "type": "edanmdm",
+        "url": "edanmdm:slasro_144700",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Year",
+                "content": "2017"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Arcand, Kimberly K."
+              },
+              {
+                "label": "Author",
+                "content": "Watzke, Megan"
+              },
+              {
+                "label": "Author",
+                "content": "DePasquale, J."
+              },
+              {
+                "label": "Author",
+                "content": "Jubett, A."
+              },
+              {
+                "label": "Author",
+                "content": "Edmonds, P."
+              },
+              {
+                "label": "Author",
+                "content": "DiVona, K."
+              }
+            ],
+            "notes": [
+              {
+                "label": "Citation",
+                "content": "Arcand, Kimberly K., Watzke, Megan, DePasquale, J., Jubett, A., Edmonds, P., and DiVona, K. 2017. \"<a href=\"http://adsabs.harvard.edu/abs/2017CAPJ...22...14A\">Bringing Cosmic Objects Down to Earth: An Overview of 3D Modelling and Printing in Astronomy and Astronomy Communication</a>.\" <em>Communicating Astronomy with the Public Journal</em>, 22 14."
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data source",
+                "content": "Smithsonian Libraries and Archives"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Identifier",
+                "content": "144700"
+              },
+              {
+                "label": "ISSN",
+                "content": "1996-5621"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Object Type",
+                "content": "Smithsonian staff publication"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2010s"
+            ],
+            "name": [
+              {
+                "type": "author",
+                "content": "Arcand, Kimberly K."
+              },
+              {
+                "type": "author",
+                "content": "Watzke, Megan"
+              },
+              {
+                "type": "author",
+                "content": "DePasquale, J."
+              },
+              {
+                "type": "author",
+                "content": "Jubett, A."
+              },
+              {
+                "type": "author",
+                "content": "Edmonds, P."
+              },
+              {
+                "type": "author",
+                "content": "DiVona, K."
+              }
+            ],
+            "object_type": [
+              "Journal Article",
+              "Smithsonian staff publications"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Bringing Cosmic Objects Down to Earth: An Overview of 3D Modelling and Printing in Astronomy and Astronomy Communication"
+            },
+            "record_ID": "slasro_144700",
+            "unit_code": "SLA_SRO",
+            "title_sort": "BRINGING COSMIC OBJECTS DOWN TO EARTH: AN OVERVIEW OF 3D MODELLING AND PRINTING IN ASTRONOMY AND ASTRONOMY COMMUNICATION",
+            "data_source": "Smithsonian Libraries and Archives",
+            "record_link": "http://adsabs.harvard.edu/abs/2017CAPJ...22...14A",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "e486252fcd2804b4f49b7f113e7d67e57d90c7f8",
+        "docSignature": "cf237fff475686673a7aaefe3beb01d3",
+        "timestamp": "1663956065",
+        "lastTimeUpdated": "1663956065",
+        "version": "1663955560"
+      },
+      {
+        "id": "sro-1663946979444-1663946990769-2",
+        "title": "Sexual dimorphism and regional variation in human frontal bone inclination measured via digital 3D models",
+        "unitCode": "SLA_SRO",
+        "type": "edanmdm",
+        "url": "edanmdm:slasro_144894",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Year",
+                "content": "2017"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Petaros, Anja"
+              },
+              {
+                "label": "Author",
+                "content": "Garvi, Heather M."
+              },
+              {
+                "label": "Author",
+                "content": "Sholts, Sabrina B."
+              },
+              {
+                "label": "Author",
+                "content": "Schlager, Stefan"
+              },
+              {
+                "label": "Author",
+                "content": "Warmlander, Sebastian K. T. S."
+              }
+            ],
+            "notes": [
+              {
+                "label": "Citation",
+                "content": "Petaros, Anja, Garvi, Heather M., Sholts, Sabrina B., Schlager, Stefan, and Warmlander, Sebastian K. T. S. 2017. \"<a href=\"https://www.sciencedirect.com/science/article/am/pii/S1344622317301591\">Sexual dimorphism and regional variation in human frontal bone inclination measured via digital 3D models</a>.\" <em>Legal medicine</em>, 29 53–61. <a href=\"https://doi.org/10.1016/j.legalmed.2017.10.001\">https://doi.org/10.1016/j.legalmed.2017.10.001</a>."
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data source",
+                "content": "Smithsonian Libraries and Archives"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Identifier",
+                "content": "144894"
+              },
+              {
+                "label": "DOI",
+                "content": "https://doi.org/10.1016/j.legalmed.2017.10.001"
+              },
+              {
+                "label": "ISSN",
+                "content": "1344-6223"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Object Type",
+                "content": "Smithsonian staff publication"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2010s"
+            ],
+            "name": [
+              {
+                "type": "author",
+                "content": "Petaros, Anja"
+              },
+              {
+                "type": "author",
+                "content": "Garvi, Heather M."
+              },
+              {
+                "type": "author",
+                "content": "Sholts, Sabrina B."
+              },
+              {
+                "type": "author",
+                "content": "Schlager, Stefan"
+              },
+              {
+                "type": "author",
+                "content": "Warmlander, Sebastian K. T. S."
+              }
+            ],
+            "object_type": [
+              "Journal Article",
+              "Smithsonian staff publications"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Sexual dimorphism and regional variation in human frontal bone inclination measured via digital 3D models"
+            },
+            "record_ID": "slasro_144894",
+            "unit_code": "SLA_SRO",
+            "title_sort": "SEXUAL DIMORPHISM AND REGIONAL VARIATION IN HUMAN FRONTAL BONE INCLINATION MEASURED VIA DIGITAL 3D MODELS",
+            "data_source": "Smithsonian Libraries and Archives",
+            "record_link": "https://www.sciencedirect.com/science/article/am/pii/S1344622317301591",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "9e7ca80503cfcb97ce9a1ff33153022e51cc7cff",
+        "docSignature": "997bfd81cc7dc5aafb49604e6853e821",
+        "timestamp": "1663956065",
+        "lastTimeUpdated": "1663956065",
+        "version": "1663955562"
+      },
+      {
+        "id": "sro-1663946979444-1663946990922-2",
+        "title": "Tracing social interactions in Pleistocene North America via 3D model analysis of stone tool asymmetry",
+        "unitCode": "SLA_SRO",
+        "type": "edanmdm",
+        "url": "edanmdm:slasro_143222",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Year",
+                "content": "2017"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Sholts, Sabrina B."
+              },
+              {
+                "label": "Author",
+                "content": "Gingerich, Joseph A. M."
+              },
+              {
+                "label": "Author",
+                "content": "Schlager, Stefan"
+              },
+              {
+                "label": "Author",
+                "content": "Stanford, Dennis J."
+              },
+              {
+                "label": "Author",
+                "content": "Wärmländer, Sebastian K. T. S."
+              }
+            ],
+            "notes": [
+              {
+                "label": "Citation",
+                "content": "Sholts, Sabrina B., Gingerich, Joseph A. M., Schlager, Stefan, Stanford, Dennis J., and Wärmländer, Sebastian K. T. S. 2017. \"<a href=\"https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0179933&type=printable\">Tracing social interactions in Pleistocene North America via 3D model analysis of stone tool asymmetry</a>.\" <em>PloS One</em>, 12, (7). <a href=\"https://doi.org/10.1371/journal.pone.0179933\">https://doi.org/10.1371/journal.pone.0179933</a>."
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data source",
+                "content": "Smithsonian Libraries and Archives"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Identifier",
+                "content": "143222"
+              },
+              {
+                "label": "DOI",
+                "content": "https://doi.org/10.1371/journal.pone.0179933"
+              },
+              {
+                "label": "ISSN",
+                "content": "1932-6203"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Object Type",
+                "content": "Smithsonian staff publication"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2010s"
+            ],
+            "name": [
+              {
+                "type": "author",
+                "content": "Sholts, Sabrina B."
+              },
+              {
+                "type": "author",
+                "content": "Gingerich, Joseph A. M."
+              },
+              {
+                "type": "author",
+                "content": "Schlager, Stefan"
+              },
+              {
+                "type": "author",
+                "content": "Stanford, Dennis J."
+              },
+              {
+                "type": "author",
+                "content": "Wärmländer, Sebastian K. T. S."
+              }
+            ],
+            "object_type": [
+              "Journal Article",
+              "Smithsonian staff publications"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Tracing social interactions in Pleistocene North America via 3D model analysis of stone tool asymmetry"
+            },
+            "record_ID": "slasro_143222",
+            "unit_code": "SLA_SRO",
+            "title_sort": "TRACING SOCIAL INTERACTIONS IN PLEISTOCENE NORTH AMERICA VIA 3D MODEL ANALYSIS OF STONE TOOL ASYMMETRY",
+            "data_source": "Smithsonian Libraries and Archives",
+            "record_link": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0179933&type=printable",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "e4f454e4eabd5becc6bf8d61ee63783b0736860b",
+        "docSignature": "af6f15de07d058e72b9e1588f80990e3",
+        "timestamp": "1663956063",
+        "lastTimeUpdated": "1663956063",
+        "version": "1663955562"
+      },
+      {
+        "id": "sro-1663946979444-1663946990278-1",
+        "title": "Building a common description of land cover in a tropical watershed plagued with intercultural conflicts: The value of participatory 3D modelling",
+        "unitCode": "SLA_SRO",
+        "type": "edanmdm",
+        "url": "edanmdm:slasro_142566",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Year",
+                "content": "2017"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Guillemette, Mathieu"
+              },
+              {
+                "label": "Author",
+                "content": "Potvin, Catherine Jeanne"
+              },
+              {
+                "label": "Author",
+                "content": "Martinez, Lauliano"
+              },
+              {
+                "label": "Author",
+                "content": "Pacheco, Bonarge"
+              },
+              {
+                "label": "Author",
+                "content": "Cano, Dioniz"
+              },
+              {
+                "label": "Author",
+                "content": "Perez, Ignacio"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Citation",
+                "content": "Guillemette, Mathieu, Potvin, Catherine Jeanne, Martinez, Lauliano, Pacheco, Bonarge, Cano, Dioniz, and Perez, Ignacio. 2017. \"<a href=\"https://www.facetsjournal.com/doi/pdf/10.1139/facets-2016-0010\">Building a common description of land cover in a tropical watershed plagued with intercultural conflicts: The value of participatory 3D modelling</a>.\" <em>Facets</em>, 2, (1) 195–211. <a href=\"https://doi.org/10.1139/facets-2016-0010\">https://doi.org/10.1139/facets-2016-0010</a>."
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data source",
+                "content": "Smithsonian Libraries and Archives"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Identifier",
+                "content": "142566"
+              },
+              {
+                "label": "DOI",
+                "content": "https://doi.org/10.1139/facets-2016-0010"
+              },
+              {
+                "label": "ISSN",
+                "content": "2371-1671"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Object Type",
+                "content": "Smithsonian staff publication"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2010s"
+            ],
+            "name": [
+              {
+                "type": "author",
+                "content": "Guillemette, Mathieu"
+              },
+              {
+                "type": "author",
+                "content": "Potvin, Catherine Jeanne"
+              },
+              {
+                "type": "author",
+                "content": "Martinez, Lauliano"
+              },
+              {
+                "type": "author",
+                "content": "Pacheco, Bonarge"
+              },
+              {
+                "type": "author",
+                "content": "Cano, Dioniz"
+              },
+              {
+                "type": "author",
+                "content": "Perez, Ignacio"
+              }
+            ],
+            "object_type": [
+              "Journal Article",
+              "Smithsonian staff publications"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Building a common description of land cover in a tropical watershed plagued with intercultural conflicts: The value of participatory 3D modelling"
+            },
+            "record_ID": "slasro_142566",
+            "unit_code": "SLA_SRO",
+            "title_sort": "BUILDING A COMMON DESCRIPTION OF LAND COVER IN A TROPICAL WATERSHED PLAGUED WITH INTERCULTURAL CONFLICTS: THE VALUE OF PARTICIPATORY 3D MODELLING",
+            "data_source": "Smithsonian Libraries and Archives",
+            "record_link": "https://www.facetsjournal.com/doi/pdf/10.1139/facets-2016-0010",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "0aa84856a108394bee278212707a1a7012b1e6ba",
+        "docSignature": "4f256dfc7a87b7c13953a0b05cb5e850",
+        "timestamp": "1663956063",
+        "lastTimeUpdated": "1663956063",
+        "version": "1663955561"
+      },
+      {
+        "id": "sro-1663946979444-1663946981062-2",
+        "title": "Size, shape, and direction matters: Matching secondary genital structures in male and female mites using multiple microscopy techniques and 3D modeling",
+        "unitCode": "SLA_SRO",
+        "type": "edanmdm",
+        "url": "edanmdm:slasro_160974",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Year",
+                "content": "2021"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Cómbita-Heredia, Orlando"
+              },
+              {
+                "label": "Author",
+                "content": "Gulbronson, Connor J."
+              },
+              {
+                "label": "Author",
+                "content": "Ochoa, Ronald"
+              },
+              {
+                "label": "Author",
+                "content": "Quintero-Gutiérrez, Edwin Javier"
+              },
+              {
+                "label": "Author",
+                "content": "Bauchan, Gary"
+              },
+              {
+                "label": "Author",
+                "content": "Klompen, Hans"
+              },
+              {
+                "label": "Editor",
+                "content": "Kuntner, Matjaž"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Citation",
+                "content": "Cómbita-Heredia, Orlando, Gulbronson, Connor J., Ochoa, Ronald, Quintero-Gutiérrez, Edwin Javier, Bauchan, Gary, and Klompen, Hans. 2021. \"<a href=\"https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0254974&type=printable\">Size, shape, and direction matters: Matching secondary genital structures in male and female mites using multiple microscopy techniques and 3D modeling</a>.\" <em>PLOS ONE</em>, 16, (8). <a href=\"https://doi.org/10.1371/journal.pone.0254974\">https://doi.org/10.1371/journal.pone.0254974</a>."
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data source",
+                "content": "Smithsonian Libraries and Archives"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Identifier",
+                "content": "160974"
+              },
+              {
+                "label": "DOI",
+                "content": "https://doi.org/10.1371/journal.pone.0254974"
+              },
+              {
+                "label": "ISSN",
+                "content": "1932-6203"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Object Type",
+                "content": "Smithsonian staff publication"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2020s"
+            ],
+            "name": [
+              {
+                "type": "author",
+                "content": "Cómbita-Heredia, Orlando"
+              },
+              {
+                "type": "author",
+                "content": "Gulbronson, Connor J."
+              },
+              {
+                "type": "author",
+                "content": "Ochoa, Ronald"
+              },
+              {
+                "type": "author",
+                "content": "Quintero-Gutiérrez, Edwin Javier"
+              },
+              {
+                "type": "author",
+                "content": "Bauchan, Gary"
+              },
+              {
+                "type": "author",
+                "content": "Klompen, Hans"
+              },
+              {
+                "type": "editor",
+                "content": "Kuntner, Matjaž"
+              }
+            ],
+            "object_type": [
+              "Journal Article",
+              "Smithsonian staff publications"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Size, shape, and direction matters: Matching secondary genital structures in male and female mites using multiple microscopy techniques and 3D modeling"
+            },
+            "record_ID": "slasro_160974",
+            "unit_code": "SLA_SRO",
+            "title_sort": "SIZE, SHAPE, AND DIRECTION MATTERS: MATCHING SECONDARY GENITAL STRUCTURES IN MALE AND FEMALE MITES USING MULTIPLE MICROSCOPY TECHNIQUES AND 3D MODELING",
+            "data_source": "Smithsonian Libraries and Archives",
+            "record_link": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0254974&type=printable",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "a9265babb0fb46af36d4cb57f6806ae7713e0a10",
+        "docSignature": "cc7e46d6f6382cbf0cfd8bbbf4964c2e",
+        "timestamp": "1663956081",
+        "lastTimeUpdated": "1663956081",
+        "version": "1663955545"
+      }
+    ],
+    "facets": {},
+    "rowCount": 1239,
+    "message": "content found"
+  }
+}

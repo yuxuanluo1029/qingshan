@@ -316,15 +316,36 @@ class DFAM(nn.Module):
             self.s = nn.Sequential(nn.Conv2d(in_c, out_c, 1, bias=False), nn.BatchNorm2d(out_c), nn.ReLU(inplace=True), nn.Conv2d(out_c, out_c, 1, bias=False), nn.BatchNorm2d(out_c))
         self.g = nn.Sequential(nn.AdaptiveAvgPool2d(1), nn.Conv2d(out_c * 2, 2, 1), nn.Softmax(dim=1))
         self.rw = nn.Parameter(torch.tensor(0.1))
+        self.freq_scale = nn.Parameter(torch.tensor(0.15))
         self.proj = nn.Conv2d(in_c, out_c, 1, bias=False) if in_c != out_c else nn.Identity()
         self.act = nn.ReLU(inplace=True)
 
-    def forward(self, x, skip=None):
+    def forward(self, x, skip=None, skip_low=None, skip_high=None):
         x = self.up(x)
         if skip is not None and x.shape[-2:] != skip.shape[-2:]:
             skip = F.interpolate(skip, size=x.shape[-2:], mode="bilinear", align_corners=False)
-        xc = torch.cat([x, skip], dim=1) if skip is not None else x
-        t, s = self.t(xc), self.s(xc)
+
+        if skip is not None:
+            tex_skip = skip
+            sal_skip = skip
+
+            if skip_high is not None:
+                if skip_high.shape[-2:] != x.shape[-2:]:
+                    skip_high = F.interpolate(skip_high, size=x.shape[-2:], mode="bilinear", align_corners=False)
+                tex_skip = tex_skip + self.freq_scale * skip_high
+
+            if skip_low is not None:
+                if skip_low.shape[-2:] != x.shape[-2:]:
+                    skip_low = F.interpolate(skip_low, size=x.shape[-2:], mode="bilinear", align_corners=False)
+                sal_skip = sal_skip + self.freq_scale * skip_low
+
+            tex_in = torch.cat([x, tex_skip], dim=1)
+            sal_in = torch.cat([x, sal_skip], dim=1)
+        else:
+            tex_in = x
+            sal_in = x
+
+        t, s = self.t(tex_in), self.s(sal_in)
         w = self.g(torch.cat([t, s], dim=1))
         f = w[:, 0:1] * t + w[:, 1:2] * s
         return self.act(f + self.rw * self.proj(x))
@@ -352,21 +373,26 @@ class SATNetDecoder(nn.Module):
                 nn.init.constant_(m.weight, 1.0)
                 nn.init.constant_(m.bias, 0.0)
 
-    def forward(self, feats, input_size, depth_map=None, thermal_img=None):
+    def forward(self, feats, input_size, low_feats=None, high_feats=None, depth_map=None, thermal_img=None):
         x1, x2, x3, x4 = feats
-        d4 = self.dfam4(x4, x3)
+        if low_feats is None:
+            low_feats = [None, None, None, None]
+        if high_feats is None:
+            high_feats = [None, None, None, None]
+
+        d4 = self.dfam4(x4, x3, skip_low=low_feats[2], skip_high=high_feats[2])
         if self.use_modal_decoder_fusion and depth_map is not None and thermal_img is not None:
             d4 = self.guides[0](d4, depth_map, thermal_img)
         s4 = F.interpolate(self.side[0](d4), size=input_size, mode="bilinear", align_corners=False)
-        d3 = self.dfam3(d4, x2)
+        d3 = self.dfam3(d4, x2, skip_low=low_feats[1], skip_high=high_feats[1])
         if self.use_modal_decoder_fusion and depth_map is not None and thermal_img is not None:
             d3 = self.guides[1](d3, depth_map, thermal_img)
         s3 = F.interpolate(self.side[1](d3), size=input_size, mode="bilinear", align_corners=False)
-        d2 = self.dfam2(d3, x1)
+        d2 = self.dfam2(d3, x1, skip_low=low_feats[0], skip_high=high_feats[0])
         if self.use_modal_decoder_fusion and depth_map is not None and thermal_img is not None:
             d2 = self.guides[2](d2, depth_map, thermal_img)
         s2 = F.interpolate(self.side[2](d2), size=input_size, mode="bilinear", align_corners=False)
-        d1 = self.dfam1(d2, None)
+        d1 = self.dfam1(d2, None, skip_low=None, skip_high=None)
         if self.use_modal_decoder_fusion and depth_map is not None and thermal_img is not None:
             d1 = self.guides[3](d1, depth_map, thermal_img)
         main = self.final_conv(self.final_up(d1))
@@ -433,16 +459,18 @@ class LSNet_SOD(nn.Module):
         input_size = rgb.shape[2:]
         x = self.patch_embed_rgb(rgb)
         x = self.blocks1(x)
-        x1, _, _ = self.fusions[0](x, depth, thermal)
+        x1, l1, h1 = self.fusions[0](x, depth, thermal)
         x = self.blocks2(x1)
-        x2, _, _ = self.fusions[1](x, depth, thermal)
+        x2, l2, h2 = self.fusions[1](x, depth, thermal)
         x = self.blocks3(x2)
-        x3, _, _ = self.fusions[2](x, depth, thermal)
+        x3, l3, h3 = self.fusions[2](x, depth, thermal)
         x = self.blocks4(x3)
-        x4, _, _ = self.fusions[3](x, depth, thermal)
+        x4, l4, h4 = self.fusions[3](x, depth, thermal)
         main, sides = self.decoder(
             [x1, x2, x3, x4],
             input_size,
+            low_feats=[l1, l2, l3, l4],
+            high_feats=[h1, h2, h3, h4],
             depth_map=depth if self.use_modal_decoder_fusion else None,
             thermal_img=thermal if self.use_modal_decoder_fusion else None,
         )

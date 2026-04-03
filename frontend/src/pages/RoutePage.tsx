@@ -143,7 +143,7 @@ export default function RoutePage() {
                   </div>
 
                   <HoverLift className="mb-6 grow">
-                    <Link to={`/node/${point.id}`}>
+                    <Link to={`/guide/node/${point.id}`}>
                       <div
                         className="rounded-xl p-5 transition-all duration-200"
                         style={{ background: '#FFFFFF', border: '1px solid #D8C8B4', boxShadow: '0 4px 16px rgba(36,67,80,0.08)' }}
@@ -210,7 +210,7 @@ export default function RoutePage() {
 
         <FadeIn className="mt-8 pb-12">
           <Button
-            onClick={() => safeRoutePoints[0] && navigate(`/node/${safeRoutePoints[0].id}`)}
+            onClick={() => safeRoutePoints[0] && navigate(`/guide/node/${safeRoutePoints[0].id}`)}
             className="w-full rounded-xl py-6 text-lg font-bold tracking-widest transition-all hover:scale-[1.02]"
             style={{
               background: `linear-gradient(135deg, ${matchedRoute.color}, ${matchedRoute.color}cc)`,

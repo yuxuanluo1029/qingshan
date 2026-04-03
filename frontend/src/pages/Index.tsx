@@ -127,7 +127,6 @@ export default function Index() {
             className="mb-7 max-w-2xl leading-8"
             style={{ color: 'rgba(247,241,231,0.72)', fontSize: '14px' }}
           >
-            面向人工智能实践赛“智能教育与文化”方向，聚焦“历史 + 文化 + 城市”。
             通过 AI 导师对话、腾讯地图点位导航、现场观察任务与学习反馈报告，
             把一次城市出行转化为可复盘、可讲解、可展示的研学过程。
           </p>
@@ -135,7 +134,7 @@ export default function Index() {
 
         <FadeIn delay={0.78}>
           <div className="mb-8 flex flex-wrap justify-center gap-3 text-xs">
-            {['应用场景：城市研学', '技术亮点：AI + 腾讯地图', '交付形态：路线 + 报告 + 演示'].map((item) => (
+            {['应用场景：城市研学', '技术亮点：AI + 腾讯地图', '城迹指南'].map((item) => (
               <span
                 key={item}
                 className="rounded-full px-3 py-1.5"
@@ -149,7 +148,7 @@ export default function Index() {
 
         <FadeIn delay={1.0}>
           <Button
-            onClick={() => navigate('/setup')}
+            onClick={() => navigate('/guide/setup')}
             className="group relative overflow-hidden rounded-full px-12 py-6 text-lg font-bold tracking-[0.25em] transition-all duration-300 hover:scale-105"
             style={{
               background: 'linear-gradient(135deg, #B66A44 0%, #D38A5C 100%)',
