@@ -183,7 +183,7 @@ export default function Scene3D() {
           </div>
         ) : (
           <div className="mt-4 rounded-2xl p-4 text-sm" style={{ background: 'rgba(143,90,53,0.08)', color: '#6b4d38' }}>
-            暂未找到该城市对应文物模型，请在“博物馆游览”中查看完整文物列表。
+            暂未找到该城市对应文物模型，请在“3D博物馆”中查看完整文物列表。
           </div>
         )}
       </section>

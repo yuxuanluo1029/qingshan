@@ -35,6 +35,8 @@ export interface AtlasCityHeat {
   city: string;
   x: number;
   y: number;
+  lon: number;
+  lat: number;
   score: number;
   relics: number;
   museums: number;
@@ -63,6 +65,15 @@ export interface AtlasGallery {
   image: string;
   caption: string;
   sourceUrl: string;
+}
+
+export interface AtlasRepresentativeCity {
+  city: string;
+  region: '华北' | '东北' | '华东' | '华中' | '华南' | '西南' | '西北';
+  score: number;
+  x: number;
+  y: number;
+  feature: string;
 }
 
 export const atlasMetrics: AtlasMetric[] = [
@@ -116,11 +127,20 @@ export const atlasDimensionCompare: AtlasDimensionCompare[] = [
 ];
 
 export const atlasCityHeat: AtlasCityHeat[] = [
-  { city: '成都', x: 34, y: 59, score: 88, relics: 119, museums: 62, highlight: '三星堆-金沙双遗址体系' },
-  { city: '西安', x: 49, y: 52, score: 96, relics: 138, museums: 79, highlight: '秦汉隋唐都城文明核心带' },
-  { city: '武汉', x: 60, y: 58, score: 84, relics: 93, museums: 68, highlight: '长江中游文明交流枢纽' },
-  { city: '长沙', x: 57, y: 66, score: 86, relics: 101, museums: 64, highlight: '楚汉文化与近代城市记忆' },
-  { city: '杭州', x: 68, y: 60, score: 90, relics: 111, museums: 73, highlight: '良渚文明与江南都城景观' },
+  { city: '成都', x: 34, y: 59, lon: 104.0668, lat: 30.5728, score: 88, relics: 119, museums: 62, highlight: '三星堆-金沙双遗址体系' },
+  { city: '西安', x: 49, y: 52, lon: 108.9398, lat: 34.3416, score: 96, relics: 138, museums: 79, highlight: '秦汉隋唐都城文明核心带' },
+  { city: '武汉', x: 60, y: 58, lon: 114.3054, lat: 30.5931, score: 84, relics: 93, museums: 68, highlight: '长江中游文明交流枢纽' },
+  { city: '长沙', x: 57, y: 66, lon: 112.9388, lat: 28.2282, score: 86, relics: 101, museums: 64, highlight: '楚汉文化与近代城市记忆' },
+  { city: '杭州', x: 68, y: 60, lon: 120.1551, lat: 30.2741, score: 90, relics: 111, museums: 73, highlight: '良渚文明与江南都城景观' },
+];
+
+export const atlasRepresentativeCities: AtlasRepresentativeCity[] = [
+  { city: '北京', region: '华北', score: 95, x: 62, y: 32, feature: '都城礼制与中轴遗产' },
+  { city: '洛阳', region: '华中', score: 91, x: 54, y: 47, feature: '多朝都城叠层遗存' },
+  { city: '南京', region: '华东', score: 89, x: 68, y: 55, feature: '六朝文脉与城墙体系' },
+  { city: '郑州', region: '华中', score: 87, x: 56, y: 50, feature: '商都遗址与青铜文明' },
+  { city: '广州', region: '华南', score: 85, x: 66, y: 76, feature: '海丝港口文化' },
+  { city: '南昌', region: '华中', score: 82, x: 62, y: 66, feature: '赣鄱文化通道' },
 ];
 
 export const atlasNodes: AtlasNode[] = [

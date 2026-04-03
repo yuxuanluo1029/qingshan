@@ -67,7 +67,7 @@ apiClient.interceptors.response.use(
  */
 export function getErrorMessage(error: unknown): string {
   if (axios.isAxiosError(error)) {
-    return error.response?.data?.message || error.message || 'An error occurred';
+    return error.response?.data?.error || error.response?.data?.message || error.message || 'An error occurred';
   }
   if (error instanceof Error) {
     return error.message;

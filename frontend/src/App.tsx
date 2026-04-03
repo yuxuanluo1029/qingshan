@@ -14,7 +14,9 @@ import KnowledgeQA from '@/pages/KnowledgeQA';
 import Scene3D from '@/pages/Scene3D';
 import BlogPage from '@/pages/Blog';
 import CityAtlas from '@/pages/CityAtlas';
-import TreasureVoices from '@/pages/TreasureVoices';
+import RecommendationCenter from '@/pages/RecommendationCenter';
+import CulturalGovernance from '@/pages/CulturalGovernance';
+import UserCenter from '@/pages/UserCenter';
 
 import Index from '@/pages/Index';
 import Setup from '@/pages/Setup';
@@ -85,10 +87,13 @@ function AppRouter() {
 
         <Route path="/museum" element={<MuseumTour />} />
         <Route path="/atlas" element={<CityAtlas />} />
-        <Route path="/treasure" element={<TreasureVoices />} />
+        <Route path="/treasure" element={<Navigate to="/recommend" replace />} />
         <Route path="/qa" element={<KnowledgeQA />} />
         <Route path="/scene3d" element={<Scene3D />} />
         <Route path="/blog" element={<BlogPage />} />
+        <Route path="/recommend" element={<RecommendationCenter />} />
+        <Route path="/governance" element={<CulturalGovernance />} />
+        <Route path="/profile" element={<UserCenter />} />
 
         <Route path="/setup" element={<Navigate to="/guide/setup" replace />} />
         <Route path="/chat" element={<Navigate to="/guide/chat" replace />} />

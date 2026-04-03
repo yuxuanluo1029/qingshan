@@ -1,0 +1,12 @@
+[
+  {
+    "index": 0,
+    "timestamp": "2026-04-03T08:09:33.263Z",
+    "prevHash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "payload": {
+      "system": "chengji-chain",
+      "description": "文旅治理链创世区块"
+    },
+    "hash": "ce4cb7f010530d3426cd970ebd3f9c672789ee60d5efc12c08c5e9fc2da0732b"
+  }
+]

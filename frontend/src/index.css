@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@600;700;900&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -296,6 +297,17 @@
   }
   body {
     @apply bg-background text-foreground;
+    margin: 0;
+    font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background:
+      radial-gradient(circle at 8% 12%, rgba(196, 168, 145, 0.22), transparent 34%),
+      radial-gradient(circle at 90% 4%, rgba(139, 124, 113, 0.2), transparent 38%),
+      linear-gradient(180deg, #f7f2ea 0%, #efe6d7 50%, #e8ddcc 100%);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: "Noto Serif SC", "Songti SC", serif;
+    letter-spacing: 0.02em;
   }
 }
 
@@ -398,5 +410,124 @@
 @media (prefers-reduced-motion: reduce) {
   .page-transition {
     transition: none !important;
+  }
+}
+
+/* ================================================================
+   Heritage Design System
+   ================================================================ */
+
+.heritage-surface {
+  background:
+    linear-gradient(180deg, rgba(255, 252, 246, 0.94), rgba(248, 239, 226, 0.94));
+  border: 1px solid rgba(124, 95, 70, 0.22);
+  box-shadow:
+    0 12px 28px rgba(69, 45, 30, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  border-radius: 1.25rem;
+}
+
+.heritage-hero {
+  background:
+    radial-gradient(circle at 14% 18%, rgba(206, 158, 106, 0.28), transparent 34%),
+    radial-gradient(circle at 84% 16%, rgba(111, 76, 48, 0.28), transparent 36%),
+    linear-gradient(128deg, #241811 0%, #3f291d 46%, #6a4734 100%);
+  border: 1px solid rgba(255, 229, 197, 0.2);
+  box-shadow: 0 16px 44px rgba(48, 31, 20, 0.24);
+}
+
+.heritage-chip {
+  border-radius: 999px;
+  border: 1px solid rgba(124, 95, 70, 0.24);
+  background: rgba(255, 248, 236, 0.75);
+  color: #7a5131;
+  transition: all 0.25s ease;
+}
+
+.heritage-chip:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(83, 54, 34, 0.12);
+}
+
+.heritage-title {
+  color: #5c3620;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+.heritage-muted {
+  color: #7b5c46;
+}
+
+.heritage-card {
+  background: linear-gradient(180deg, #fffaf2 0%, #f8f0e2 100%);
+  border: 1px solid rgba(123, 90, 63, 0.2);
+  border-radius: 1rem;
+  box-shadow: 0 10px 24px rgba(67, 43, 27, 0.08);
+  transition: transform 0.24s ease, box-shadow 0.24s ease;
+}
+
+.heritage-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 28px rgba(67, 43, 27, 0.13);
+}
+
+.heritage-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(124, 95, 70, 0.44) 50%, transparent 100%);
+}
+
+.heritage-fade-in {
+  animation: heritageFadeIn 0.6s ease both;
+}
+
+@keyframes heritageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home-hero-bg {
+  animation: homeHeroZoom 18s ease-in-out infinite alternate;
+}
+
+.home-float-slow {
+  animation: homeFloatSlow 9s ease-in-out infinite;
+}
+
+.home-float-fast {
+  animation: homeFloatFast 6.5s ease-in-out infinite;
+}
+
+@keyframes homeHeroZoom {
+  0% {
+    transform: scale(1.04) translateY(0);
+  }
+  100% {
+    transform: scale(1.12) translateY(-10px);
+  }
+}
+
+@keyframes homeFloatSlow {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+}
+
+@keyframes homeFloatFast {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(3deg);
   }
 }

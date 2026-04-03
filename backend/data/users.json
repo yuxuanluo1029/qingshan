@@ -1,0 +1,46 @@
+[
+  {
+    "id": "u_1775199239775_d1hod5",
+    "username": "test_user_demo",
+    "passwordHash": "c6e2c11b2c5e2ffe0fb78ee5cc448405decc725d9d77262478b63c64c41714b9",
+    "role": "user",
+    "avatarUrl": "",
+    "region": "未设置",
+    "createdAt": "2026-04-03T06:53:59.775Z",
+    "resetCode": "",
+    "resetExpiresAt": ""
+  },
+  {
+    "id": "u_1775200207587_qm5mv2",
+    "username": "quella",
+    "passwordHash": "c6e2c11b2c5e2ffe0fb78ee5cc448405decc725d9d77262478b63c64c41714b9",
+    "role": "user",
+    "avatarUrl": "",
+    "region": "未设置",
+    "createdAt": "2026-04-03T07:10:07.587Z",
+    "resetCode": "",
+    "resetExpiresAt": ""
+  },
+  {
+    "id": "u_1775200299348_rgkoao",
+    "username": "123",
+    "passwordHash": "c6e2c11b2c5e2ffe0fb78ee5cc448405decc725d9d77262478b63c64c41714b9",
+    "role": "user",
+    "avatarUrl": "",
+    "region": "未设置",
+    "createdAt": "2026-04-03T07:11:39.348Z",
+    "resetCode": "",
+    "resetExpiresAt": ""
+  },
+  {
+    "id": "u_1775201598007_89lqf9",
+    "username": "vision_demo_user",
+    "passwordHash": "c6e2c11b2c5e2ffe0fb78ee5cc448405decc725d9d77262478b63c64c41714b9",
+    "role": "user",
+    "avatarUrl": "",
+    "region": "未设置",
+    "createdAt": "2026-04-03T07:33:18.007Z",
+    "resetCode": "",
+    "resetExpiresAt": ""
+  }
+]

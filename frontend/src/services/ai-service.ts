@@ -48,6 +48,28 @@ export interface BattleReportOutput {
   personality: string;
 }
 
+export interface IdentifyCandidateInput {
+  id: string;
+  title: string;
+  city: string;
+  category: string;
+  summary: string;
+  sourceUrl: string;
+  image: string;
+}
+
+export interface IdentifyCandidateResult extends IdentifyCandidateInput {
+  score: number;
+}
+
+export interface IdentifyImageResult {
+  usedSaliency: boolean;
+  usedDeepFeature: boolean;
+  uncertain: boolean;
+  bestMatch: IdentifyCandidateResult | null;
+  matches: IdentifyCandidateResult[];
+}
+
 const SYSTEM_PROMPT = `你是“城迹”城市历史文化导师。
 你的目标是帮助用户完成城市研学，不使用游戏化对战语汇，不夸张、不空泛。
 回答要求：
@@ -114,6 +136,40 @@ class AIService {
       finalTitle: '城市文化观察者',
       posterCopy: '把路走成课堂，把城市读成文本。',
       personality: '你擅长在真实场景中发现知识线索，适合做研学讲解与内容策划。',
+    };
+  }
+
+  async identifyImage(
+    imageDataUrl: string,
+    candidates: IdentifyCandidateInput[],
+    scope?: {
+      cityScope?: string;
+      categoryScope?: string;
+    },
+  ): Promise<IdentifyImageResult> {
+    const res = await fetch(withBase('/api/ai/identify'), {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        imageDataUrl,
+        candidates,
+        cityScope: scope?.cityScope || '',
+        categoryScope: scope?.categoryScope || '',
+      }),
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error(data?.error || data?.message || 'Image identify API failed');
+    }
+
+    return {
+      usedSaliency: Boolean(data?.data?.usedSaliency),
+      usedDeepFeature: Boolean(data?.data?.usedDeepFeature),
+      uncertain: Boolean(data?.data?.uncertain),
+      bestMatch: data?.data?.bestMatch || null,
+      matches: Array.isArray(data?.data?.matches) ? data.data.matches : [],
     };
   }
 

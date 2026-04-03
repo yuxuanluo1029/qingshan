@@ -1,0 +1,74 @@
+[
+  {
+    "userId": "u_1775200207587_qm5mv2",
+    "preferredCategories": [],
+    "likedVideoIds": [],
+    "favoritedVideoIds": [],
+    "viewedVideoIds": [
+      "vid-cctv-xian-city",
+      "vid-bili-treasure",
+      "vid-bili-sanxingdui-2",
+      "video-terracotta",
+      "video-qinling",
+      "video-yucong",
+      "video-guobao-main"
+    ],
+    "viewHistory": [
+      {
+        "videoId": "video-yucong",
+        "city": "杭州",
+        "duration": 0,
+        "viewedAt": "2026-04-03T12:16:35.894Z"
+      },
+      {
+        "videoId": "video-guobao-main",
+        "city": "跨城",
+        "duration": 0,
+        "viewedAt": "2026-04-03T09:33:08.922Z"
+      },
+      {
+        "videoId": "video-yucong",
+        "city": "杭州",
+        "duration": 0,
+        "viewedAt": "2026-04-03T09:32:53.726Z"
+      },
+      {
+        "videoId": "video-qinling",
+        "city": "西安",
+        "duration": 0,
+        "viewedAt": "2026-04-03T09:32:46.595Z"
+      },
+      {
+        "videoId": "video-terracotta",
+        "city": "西安",
+        "duration": 0,
+        "viewedAt": "2026-04-03T09:32:36.857Z"
+      },
+      {
+        "videoId": "video-terracotta",
+        "city": "西安",
+        "duration": 0,
+        "viewedAt": "2026-04-03T09:32:33.841Z"
+      },
+      {
+        "videoId": "vid-bili-sanxingdui-2",
+        "city": "成都",
+        "duration": 0,
+        "viewedAt": "2026-04-03T08:38:55.557Z"
+      },
+      {
+        "videoId": "vid-bili-treasure",
+        "city": "跨城",
+        "duration": 0,
+        "viewedAt": "2026-04-03T08:38:49.437Z"
+      },
+      {
+        "videoId": "vid-cctv-xian-city",
+        "city": "西安",
+        "duration": 0,
+        "viewedAt": "2026-04-03T08:38:45.282Z"
+      }
+    ],
+    "updatedAt": "2026-04-03T12:16:35.894Z"
+  }
+]

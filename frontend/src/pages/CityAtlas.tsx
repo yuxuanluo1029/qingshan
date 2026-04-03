@@ -23,6 +23,7 @@ import {
   atlasGallery,
   atlasMetrics,
   atlasNodes,
+  atlasRepresentativeCities,
   atlasTimelineMatrix,
 } from '@/data/cityAtlas';
 
@@ -36,8 +37,38 @@ const cityColors: Record<string, string> = {
 
 const metricKeys: Array<keyof Omit<AtlasMetric, 'city'>> = ['遗址密度', '博物馆承载', '文物热度', '文旅活力', '研究价值'];
 
+const MAP_FRAME = {
+  minLon: 73,
+  maxLon: 136,
+  minLat: 3,
+  maxLat: 54.5,
+  width: 1160,
+  height: 720,
+  pad: 28,
+};
+
+function mapLonLatToPercent(lon: number, lat: number) {
+  const x =
+    MAP_FRAME.pad + ((lon - MAP_FRAME.minLon) / (MAP_FRAME.maxLon - MAP_FRAME.minLon)) * (MAP_FRAME.width - MAP_FRAME.pad * 2);
+  const y =
+    MAP_FRAME.pad + ((MAP_FRAME.maxLat - lat) / (MAP_FRAME.maxLat - MAP_FRAME.minLat)) * (MAP_FRAME.height - MAP_FRAME.pad * 2);
+  return {
+    left: `${(x / MAP_FRAME.width) * 100}%`,
+    top: `${(y / MAP_FRAME.height) * 100}%`,
+  };
+}
+
 export default function CityAtlas() {
   const [selectedCity, setSelectedCity] = useState('西安');
+  const primaryMapUrl = `${import.meta.env.BASE_URL}assets/atlas/china-map-province-style.svg`;
+  const fallbackMapUrl = `${import.meta.env.BASE_URL}assets/atlas/china-map.svg`;
+  const [mapSrc, setMapSrc] = useState(primaryMapUrl);
+  const atlasOverview = useMemo(() => {
+    const relics = atlasCityHeat.reduce((sum, item) => sum + item.relics, 0);
+    const museums = atlasCityHeat.reduce((sum, item) => sum + item.museums, 0);
+    const avgScore = Math.round(atlasCityHeat.reduce((sum, item) => sum + item.score, 0) / atlasCityHeat.length);
+    return { relics, museums, avgScore };
+  }, []);
 
   const selectedMetric = useMemo(() => atlasMetrics.find((item) => item.city === selectedCity) ?? atlasMetrics[0], [selectedCity]);
 
@@ -53,18 +84,23 @@ export default function CityAtlas() {
 
   const cityHeatRanking = useMemo(() => [...atlasCityHeat].sort((a, b) => b.score - a.score), []);
   const activeHeat = useMemo(() => atlasCityHeat.find((item) => item.city === selectedCity) ?? atlasCityHeat[0], [selectedCity]);
+  const handleMapError = () => {
+    if (mapSrc !== fallbackMapUrl) {
+      setMapSrc(fallbackMapUrl);
+    }
+  };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 heritage-fade-in">
       <section
-        className="rounded-3xl p-6 md:p-8"
+        className="heritage-hero rounded-3xl p-6 md:p-8"
         style={{
           background:
             'radial-gradient(circle at 85% 12%, rgba(194, 166, 146, 0.34), transparent 35%), linear-gradient(135deg, #2e2722 0%, #4c3f37 45%, #6f6158 100%)',
         }}
       >
         <p className="text-xs tracking-[0.35em]" style={{ color: 'rgba(241,226,206,0.88)' }}>
-          CITY ATLAS
+          城迹图谱可视化中心
         </p>
         <h2 className="mt-3 text-3xl font-black md:text-5xl" style={{ color: '#f3e6d7', fontFamily: "'ZCOOL XiaoWei', 'Noto Serif SC', serif" }}>
           城迹图谱
@@ -74,8 +110,44 @@ export default function CityAtlas() {
         </p>
       </section>
 
+      <section className="grid gap-3 md:grid-cols-3">
+        <article className="rounded-2xl p-4" style={{ background: '#f4eee7', border: '1px solid rgba(123,103,89,0.28)' }}>
+          <p className="text-xs tracking-[0.22em]" style={{ color: '#8a7568' }}>
+            核心遗址样本
+          </p>
+          <p className="mt-1 text-2xl font-black" style={{ color: '#5d4c42' }}>
+            {atlasOverview.relics}
+          </p>
+          <p className="text-sm" style={{ color: '#7c6a5f' }}>
+            五城累计统计
+          </p>
+        </article>
+        <article className="rounded-2xl p-4" style={{ background: '#f4eee7', border: '1px solid rgba(123,103,89,0.28)' }}>
+          <p className="text-xs tracking-[0.22em]" style={{ color: '#8a7568' }}>
+            博物馆/展馆样本
+          </p>
+          <p className="mt-1 text-2xl font-black" style={{ color: '#5d4c42' }}>
+            {atlasOverview.museums}
+          </p>
+          <p className="text-sm" style={{ color: '#7c6a5f' }}>
+            五城累计统计
+          </p>
+        </article>
+        <article className="rounded-2xl p-4" style={{ background: '#f4eee7', border: '1px solid rgba(123,103,89,0.28)' }}>
+          <p className="text-xs tracking-[0.22em]" style={{ color: '#8a7568' }}>
+            地域文化均值
+          </p>
+          <p className="mt-1 text-2xl font-black" style={{ color: '#5d4c42' }}>
+            {atlasOverview.avgScore}
+          </p>
+          <p className="text-sm" style={{ color: '#7c6a5f' }}>
+            综合评分基线
+          </p>
+        </article>
+      </section>
+
       <section className="grid gap-5 xl:grid-cols-2">
-        <article className="rounded-3xl p-5" style={{ background: '#f4eee7', border: '1px solid rgba(123,103,89,0.28)', boxShadow: '0 14px 30px rgba(80,64,52,0.08)' }}>
+        <article className="heritage-surface rounded-3xl p-5" style={{ background: '#f4eee7', border: '1px solid rgba(123,103,89,0.28)', boxShadow: '0 14px 30px rgba(80,64,52,0.08)' }}>
           <h3 className="text-xl font-black" style={{ color: '#5d4c42', fontFamily: "'Noto Serif SC', serif" }}>
             城市时间曲线
           </h3>
@@ -103,7 +175,7 @@ export default function CityAtlas() {
           </div>
         </article>
 
-        <article className="rounded-3xl p-5" style={{ background: '#f4eee7', border: '1px solid rgba(123,103,89,0.28)', boxShadow: '0 14px 30px rgba(80,64,52,0.08)' }}>
+        <article className="heritage-surface rounded-3xl p-5" style={{ background: '#f4eee7', border: '1px solid rgba(123,103,89,0.28)', boxShadow: '0 14px 30px rgba(80,64,52,0.08)' }}>
           <h3 className="text-xl font-black" style={{ color: '#5d4c42', fontFamily: "'Noto Serif SC', serif" }}>
             多维评价矩阵
           </h3>
@@ -133,26 +205,28 @@ export default function CityAtlas() {
       </section>
 
       <section className="grid gap-5 xl:grid-cols-[1.35fr_1fr]">
-        <article className="rounded-3xl p-5" style={{ background: '#f4eee7', border: '1px solid rgba(123,103,89,0.28)', boxShadow: '0 14px 30px rgba(80,64,52,0.08)' }}>
+        <article className="heritage-surface rounded-3xl p-5" style={{ background: '#f4eee7', border: '1px solid rgba(123,103,89,0.28)', boxShadow: '0 14px 30px rgba(80,64,52,0.08)' }}>
           <h3 className="text-xl font-black" style={{ color: '#5d4c42', fontFamily: "'Noto Serif SC', serif" }}>
             中国地域文化热力图
           </h3>
           <p className="mt-2 text-sm" style={{ color: '#7c6a5f' }}>
-            在中国地图底图上叠加五城文化指数与馆藏规模，直观展示地域文化脉络的空间分布。
+            采用省级分块底图呈现全国文化肌理，再叠加五城锚点，形成更清晰的地域认知视图。
           </p>
 
           <div className="mt-4 rounded-2xl p-4" style={{ background: 'linear-gradient(140deg, #f9f4ed 0%, #ece3d7 100%)' }}>
             <div className="relative mx-auto max-w-[760px]">
               <img
-                src="/assets/atlas/china-map.svg"
+                src={mapSrc}
                 alt="中国地图文化可视化底图"
                 className="w-full select-none"
-                style={{ filter: 'sepia(0.5) saturate(0.45) hue-rotate(338deg) contrast(0.86) opacity(0.92)' }}
+                style={{ filter: 'contrast(0.98) saturate(1.04)' }}
                 draggable={false}
+                onError={handleMapError}
               />
 
               {atlasCityHeat.map((item) => {
                 const active = selectedCity === item.city;
+                const pos = mapLonLatToPercent(item.lon, item.lat);
                 return (
                   <button
                     key={item.city}
@@ -160,13 +234,13 @@ export default function CityAtlas() {
                     onMouseEnter={() => setSelectedCity(item.city)}
                     onClick={() => setSelectedCity(item.city)}
                     className="group absolute -translate-x-1/2 -translate-y-1/2"
-                    style={{ left: `${item.x}%`, top: `${item.y}%` }}
+                    style={{ left: pos.left, top: pos.top }}
                   >
                     <span
                       className="absolute inset-0 rounded-full opacity-45 blur-[1px]"
                       style={{
-                        width: `${Math.max(12, item.score / 4)}px`,
-                        height: `${Math.max(12, item.score / 4)}px`,
+                        width: `${Math.max(14, item.score / 3.8)}px`,
+                        height: `${Math.max(14, item.score / 3.8)}px`,
                         background: cityColors[item.city],
                         transform: 'translate(-50%, -50%)',
                         left: '50%',
@@ -179,7 +253,7 @@ export default function CityAtlas() {
                         background: active ? cityColors[item.city] : '#fefaf4',
                         borderColor: cityColors[item.city],
                         color: active ? '#fffaf4' : '#6c594f',
-                        boxShadow: active ? '0 8px 18px rgba(92,75,62,0.28)' : '0 6px 14px rgba(92,75,62,0.14)',
+                        boxShadow: active ? '0 10px 20px rgba(92,75,62,0.3)' : '0 6px 14px rgba(92,75,62,0.16)',
                       }}
                     >
                       {item.city}
@@ -188,6 +262,28 @@ export default function CityAtlas() {
                 );
               })}
             </div>
+
+            <div className="mt-3 flex flex-wrap gap-2">
+              {atlasCityHeat.map((item) => (
+                <button
+                  key={`legend_${item.city}`}
+                  type="button"
+                  onClick={() => setSelectedCity(item.city)}
+                  className="rounded-full px-3 py-1 text-xs font-semibold transition"
+                  style={{
+                    background: selectedCity === item.city ? cityColors[item.city] : '#fff8ef',
+                    color: selectedCity === item.city ? '#fffaf4' : '#6c594f',
+                    border: `1px solid ${cityColors[item.city]}`,
+                  }}
+                >
+                  {item.city}
+                </button>
+              ))}
+            </div>
+
+            <p className="mt-2 text-[11px]" style={{ color: '#8a7568' }}>
+              底图采用省级分区样式，若网络环境导致主图加载失败，系统将自动切换到备用底图。
+            </p>
 
             <div className="mt-4 grid gap-3 md:grid-cols-3">
               <div className="rounded-xl p-3" style={{ background: '#fff8ee', border: '1px solid rgba(123,103,89,0.22)' }}>
@@ -236,10 +332,23 @@ export default function CityAtlas() {
                 </div>
               ))}
             </div>
+
+            <div className="mt-4 rounded-xl p-3" style={{ background: '#fff8ee', border: '1px solid rgba(123,103,89,0.22)' }}>
+              <p className="text-xs font-semibold" style={{ color: '#6c594f' }}>
+                代表性扩展城市
+              </p>
+              <div className="mt-2 grid gap-2 md:grid-cols-2">
+                {atlasRepresentativeCities.map((city) => (
+                  <div key={city.city} className="rounded-lg px-2 py-1.5 text-xs" style={{ background: 'rgba(124,106,95,0.09)', color: '#6c594f' }}>
+                    {city.city} · {city.region} · 指数 {city.score}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </article>
 
-        <article className="rounded-3xl p-5" style={{ background: '#f4eee7', border: '1px solid rgba(123,103,89,0.28)', boxShadow: '0 14px 30px rgba(80,64,52,0.08)' }}>
+        <article className="heritage-surface rounded-3xl p-5" style={{ background: '#f4eee7', border: '1px solid rgba(123,103,89,0.28)', boxShadow: '0 14px 30px rgba(80,64,52,0.08)' }}>
           <div className="flex flex-wrap gap-2">
             {atlasMetrics.map((item) => (
               <button
@@ -284,7 +393,7 @@ export default function CityAtlas() {
       </section>
 
       <section className="grid gap-5 xl:grid-cols-[1.25fr_1fr]">
-        <article className="rounded-3xl p-5" style={{ background: '#f4eee7', border: '1px solid rgba(123,103,89,0.28)', boxShadow: '0 14px 30px rgba(80,64,52,0.08)' }}>
+        <article className="heritage-surface rounded-3xl p-5" style={{ background: '#f4eee7', border: '1px solid rgba(123,103,89,0.28)', boxShadow: '0 14px 30px rgba(80,64,52,0.08)' }}>
           <h3 className="text-xl font-black" style={{ color: '#5d4c42', fontFamily: "'Noto Serif SC', serif" }}>
             地域文化脉络图
           </h3>
@@ -329,7 +438,7 @@ export default function CityAtlas() {
           </div>
         </article>
 
-        <article className="rounded-3xl p-5" style={{ background: '#f4eee7', border: '1px solid rgba(123,103,89,0.28)', boxShadow: '0 14px 30px rgba(80,64,52,0.08)' }}>
+        <article className="heritage-surface rounded-3xl p-5" style={{ background: '#f4eee7', border: '1px solid rgba(123,103,89,0.28)', boxShadow: '0 14px 30px rgba(80,64,52,0.08)' }}>
           <h3 className="text-xl font-black" style={{ color: '#5d4c42', fontFamily: "'Noto Serif SC', serif" }}>
             图像证据索引
           </h3>
