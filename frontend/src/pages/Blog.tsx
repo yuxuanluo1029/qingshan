@@ -33,6 +33,96 @@ interface BlogPost {
 }
 
 const blogColumns = ['遗址考古', '建筑巡礼', '文物档案', '人物记忆', '城市更新', '城市随笔'] as const;
+const BLOG_CACHE_KEY = 'chengji_blog_posts_cache_v1';
+const BLOG_CACHE_LIMIT = 120;
+const DATA_URL_CACHE_LIMIT = 120000;
+
+function normalizeString(value: unknown, fallback = ''): string {
+  return typeof value === 'string' ? value : fallback;
+}
+
+function normalizeStringArray(value: unknown): string[] {
+  if (!Array.isArray(value)) return [];
+  return value.filter((item): item is string => typeof item === 'string');
+}
+
+function toCacheSafePost(post: BlogPost): BlogPost {
+  const shouldDropDataUrl =
+    typeof post.imageUrl === 'string' &&
+    post.imageUrl.startsWith('data:image/') &&
+    post.imageUrl.length > DATA_URL_CACHE_LIMIT;
+
+  return {
+    ...post,
+    imageUrl: shouldDropDataUrl ? '' : post.imageUrl,
+    comments: (post.comments || []).slice(-50),
+  };
+}
+
+function readBlogCache(): BlogPost[] {
+  try {
+    const raw = localStorage.getItem(BLOG_CACHE_KEY);
+    if (!raw) return [];
+
+    const parsed: unknown = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [];
+
+    const posts: BlogPost[] = [];
+    for (const item of parsed) {
+      if (!item || typeof item !== 'object') continue;
+      const record = item as Record<string, unknown>;
+      const id = normalizeString(record.id);
+      const title = normalizeString(record.title);
+      const content = normalizeString(record.content);
+      const createdAt = normalizeString(record.createdAt);
+      if (!id || !title || !createdAt) continue;
+
+      const commentsRaw = Array.isArray(record.comments) ? record.comments : [];
+      const comments: BlogComment[] = commentsRaw
+        .filter((comment): comment is Record<string, unknown> => Boolean(comment) && typeof comment === 'object')
+        .map((comment) => ({
+          id: normalizeString(comment.id),
+          userId: normalizeString(comment.userId),
+          username: normalizeString(comment.username, '匿名用户'),
+          userAvatar: normalizeString(comment.userAvatar),
+          userRegion: normalizeString(comment.userRegion),
+          content: normalizeString(comment.content),
+          createdAt: normalizeString(comment.createdAt, createdAt),
+        }))
+        .filter((comment) => comment.id && comment.content);
+
+      posts.push({
+        id,
+        title,
+        content,
+        cityTag: normalizeString(record.cityTag, '杭州'),
+        column: normalizeString(record.column, '城市随笔'),
+        authorId: normalizeString(record.authorId),
+        authorName: normalizeString(record.authorName, '匿名用户'),
+        authorAvatar: normalizeString(record.authorAvatar),
+        authorRegion: normalizeString(record.authorRegion, '未设置'),
+        imageUrl: normalizeString(record.imageUrl),
+        likedUserIds: normalizeStringArray(record.likedUserIds),
+        comments,
+        createdAt,
+        updatedAt: normalizeString(record.updatedAt, createdAt),
+      });
+    }
+
+    return posts.sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+  } catch {
+    return [];
+  }
+}
+
+function writeBlogCache(posts: BlogPost[]) {
+  try {
+    const payload = posts.slice(0, BLOG_CACHE_LIMIT).map(toCacheSafePost);
+    localStorage.setItem(BLOG_CACHE_KEY, JSON.stringify(payload));
+  } catch {
+    // Ignore cache write failures (quota exceeded, private mode, etc.)
+  }
+}
 
 async function compressImageToDataUrl(file: File): Promise<string> {
   const loadAsDataUrl = () =>
@@ -90,6 +180,7 @@ export default function BlogPage() {
   const { user } = useAuth();
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
+  const [cacheHydrated, setCacheHydrated] = useState(false);
 
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
@@ -107,17 +198,35 @@ export default function BlogPage() {
   const [pendingCommentIds, setPendingCommentIds] = useState<string[]>([]);
 
   useEffect(() => {
+    const cached = readBlogCache();
+    if (cached.length > 0) {
+      setPosts(cached);
+    }
+    setCacheHydrated(true);
     void loadPosts();
   }, []);
+
+  useEffect(() => {
+    if (!cacheHydrated) return;
+    writeBlogCache(posts);
+  }, [cacheHydrated, posts]);
 
   const loadPosts = async () => {
     setLoading(true);
     try {
       const res = await apiClient.get('/blog/posts');
       const data = res.data?.data?.posts;
-      setPosts(Array.isArray(data) ? data : []);
+      const nextPosts = Array.isArray(data) ? data : [];
+      setPosts(nextPosts);
+      writeBlogCache(nextPosts);
     } catch (error) {
-      toast.error(getErrorMessage(error) || '博客加载失败');
+      const cached = readBlogCache();
+      if (cached.length > 0) {
+        setPosts((prev) => (prev.length > 0 ? prev : cached));
+        toast.error('后端暂时不可用，已展示本地缓存内容');
+      } else {
+        toast.error(getErrorMessage(error) || '博客加载失败');
+      }
     } finally {
       setLoading(false);
     }

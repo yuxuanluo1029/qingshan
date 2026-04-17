@@ -5,9 +5,15 @@
     rootDir: backend
     buildCommand: npm install
     startCommand: npm run start
+    disk:
+      name: chengji-data
+      mountPath: /var/data
+      sizeGB: 1
     envVars:
       - key: PORT
         value: 3000
+      - key: DATA_DIR
+        value: /var/data/chengji
       - key: CORS_ORIGIN
         sync: false
       - key: AI_PROVIDER
